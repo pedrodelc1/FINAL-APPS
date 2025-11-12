@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -6,5 +6,8 @@ import { Injectable, signal } from '@angular/core';
 export class HeaderService {
 
   constructor () { }
+
   titulo = signal("hola");
+  extendido:WritableSignal<boolean> = signal(false);
+
 }

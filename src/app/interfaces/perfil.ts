@@ -1,6 +1,9 @@
 interface Perfil {
-    nombre: string,
-    direccion: string,
-    detalleEntrega: string,
-    telefono?: string,
-  }
+  id: number,
+  nombreRestaurante: string,
+  nombre: string,
+  apellido: string,
+  direccion: string,
+  detalleEntrega: string,
+  telefono?: string,
+}

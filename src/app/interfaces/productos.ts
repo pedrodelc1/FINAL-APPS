@@ -3,8 +3,10 @@ export interface Producto {
     id: number,
     nombre: string,
     precio: number,
-    esVegano: boolean,
-    esCeliaco: boolean,
+    isDestacado: boolean,
+    Descuento: number,
+    isHappyHour: boolean, 
     ingredientes: Producto[],
     fotoUrl: string,
 }
+export type NewProduct = Omit<Producto, "id">;

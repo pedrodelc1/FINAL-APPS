@@ -1,34 +1,25 @@
 import { Routes } from '@angular/router';
-import { Articulo } from './pages/articulo/articulo';
-import { Carrito } from './pages/carrito/carrito';
-import { Rubro } from './pages/rubro/rubro';
-import { Buscar } from './pages/buscar/buscar';
 import { Home } from './pages/home/home';
 import { Perfil } from './pages/perfil/perfil';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
 
 export const routes: Routes = [
+    
     {
-        path: "",
-        component: Home
+        path: "Login",
+        component: Login
     },
     {
-        path: "Carrito",
-        component: Carrito
-    },
-    {
-        path: "Articulo",
-        component: Articulo
-    },
-    {
-        path: "categoria/:id",
-        component: Rubro
-    },
-    {
-        path: "Buscar",
-        component: Buscar
+        path: "Registro",
+        component: Register
     },
     {
         path: "Perfil",
         component: Perfil
-    }
+    },
+    {
+        path: "**",
+        component: Home
+    },
 ];

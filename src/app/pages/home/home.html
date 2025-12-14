@@ -1,5 +1,5 @@
     <button>Registrarse</button>
-    <button routerLink="Login">Iniciar sesión</button>
+    <button routerLink="/Login">Iniciar sesión</button>
 <div id="categorias-container">
     @for (categoria of categorias; track categoria.id) {
         <app-tarjeta-categoria [categoria]="categoria" [routerLink]="['/categoria', categoria.id]"></app-tarjeta-categoria>

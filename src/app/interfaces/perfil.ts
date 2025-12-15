@@ -1,9 +1,10 @@
-interface Perfil {
-  id: number,
-  nombreRestaurante: string,
-  nombre: string,
-  apellido: string,
-  direccion: string,
-  detalleEntrega: string,
-  telefono?: string,
+export interface Perfil {
+  id: number;
+  restaurantName: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  detalleEntrega?: string;
+  phoneNumber?: string;
+  password?: string;
 }

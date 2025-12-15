@@ -1,8 +1,6 @@
 import { inject, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { loginData } from '../app/interfaces/auth';
-
-
+import { Perfil } from '../app/interfaces/perfil';
 
 @Injectable({
   providedIn: 'root'

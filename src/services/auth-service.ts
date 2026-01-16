@@ -1,8 +1,7 @@
 import { inject, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NewPerfil } from '../app/interfaces/user';
 // import { loginData } from '../app/interfaces/auth';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +11,13 @@ export class AuthService implements OnInit{
   token : null|string = localStorage.getItem("token");
   revisionTokenInterval: number|undefined;
 
-
   ngOnInit(): void {
     if(this.token){
       this.revisionTokenInterval = this.revisionToken()
     }
   }
 
-async register(registerData: Perfil){
+async register(registerData: NewPerfil){
        return await fetch("https://w370351.ferozo.com/api/users",
             {
                 method: "POST",
@@ -52,13 +50,11 @@ async login(loginData: any): Promise<boolean> {
     }
   }
 
-
   logout(){
     this.token = null;
     localStorage.removeItem("token");/** guarda variables en el navegador para que no se borren al cambiar de pagina o dia */
     this.router.navigate(["/login"]);
   }
-
 
   parseJwt(token: string) { 
 
@@ -70,7 +66,6 @@ async login(loginData: any): Promise<boolean> {
     return JSON.parse(jsonPayload); //convierte el token en un objeto JavaScript legible con los claims dentro.
   };
 
-
   revisionToken(){ //revisa si el token esta vencido
     return setInterval(() => {
       if(this.token){
@@ -81,7 +76,6 @@ async login(loginData: any): Promise<boolean> {
       }
     }, 600)
   }
-
 
   getUserId() {
     if(this.token){

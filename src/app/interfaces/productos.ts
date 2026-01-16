@@ -1,12 +1,16 @@
 
 export interface Producto {
+    name: string,
+    description: string,
+    price: number,
+    categoryId: number,
+    featured: boolean,
+    labels: string[],
+    recommendedFor: number,
+    discount: number,
+    hasHappyHour: boolean,
     id: number,
-    nombre: string,
-    precio: number,
     isDestacado: boolean,
-    Descuento: number,
-    isHappyHour: boolean, 
-    ingredientes: Producto[],
-    fotoUrl: string,
+    restaurantId: number,
 }
 export type NewProduct = Omit<Producto, "id">;

@@ -1,8 +1,11 @@
-import {Producto} from "./productos.js"
-
 export interface Categoria {
     id: number,
-    nombre: string,
-    fotoUrl: string,
-    productos: Producto[]
+    name: string,
+    restaurantId: number,
+}
+
+export type NewCategory = Omit<Categoria, "id">;
+
+export interface UpdateCategoryRequestDto {
+  name: string;
 }

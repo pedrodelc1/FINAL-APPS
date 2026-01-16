@@ -7,7 +7,7 @@ import { Producto, NewProduct } from '../app/interfaces/productos';
 })
 
 
-export class RestaurantService {
+export class ProductService {
   aleatorio = Math.random();
   authService = inject(AuthService);
   Product: Producto[] = [];
@@ -138,7 +138,7 @@ async toggleHappyHour(id: string | number, p0: { toggleHappyHour: boolean; }) {
 /**edita la lista reemplazando solamente el que editamos  */
 this.Product = this.Product.map(Product =>{
 if (Product.id === id) {
-  return {...Product, hasHappyHour: !Product.isHappyHour};
+  return {...Product, hasHappyHour: !Product.hasHappyHour};
 };
 return Product;
 });
@@ -156,7 +156,7 @@ async toggleDiscount(id: string | number, p0: { discount: number; }) {
 
   this.Product = this.Product.map(Product =>{
 if (Product.id === id) {
-  return {...Product, hasDiscount: !Product.Descuento}; 
+  return {...Product, hasDiscount: !Product.discount}; 
 };
 return Product;
 });

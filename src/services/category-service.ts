@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { AuthService } from './auth-service';
-import { Categoria } from '../app/interfaces/categoria';
+import { Categoria, NewCategory, UpdateCategoryRequestDto } from '../app/interfaces/categoria';
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class CategoriesService {
 
 
   // --- AGREGAR CATEGORÍA---
-  async addCategory(category: NewCategoria) {
+  async addCategory(category: NewCategory) {
     // 1. Verificamos datos antes de enviar
     console.log("Intentando crear categoría:", category);
     console.log("Token actual:", this.authService.token);
@@ -63,7 +63,7 @@ export class CategoriesService {
         return undefined;
       }
      
-      const newCategory: Category = await res.json();
+      const newCategory: Categoria = await res.json();
       console.log("✅ Categoría creada:", newCategory);
      
       this.categories.update(current => [...current, newCategory]);
@@ -99,7 +99,7 @@ export class CategoriesService {
       }
 
 
-      const updatedCategory = await res.json() as Category;
+      const updatedCategory = await res.json() as Categoria;
       this.categories.update(currentCategories =>
         currentCategories.map(cat => cat.id === id ? updatedCategory : cat)
       );
@@ -135,4 +135,3 @@ export class CategoriesService {
     }
   }
 }
-

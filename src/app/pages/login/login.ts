@@ -17,7 +17,6 @@ export class Login{
   router = inject(Router);
   isLoading = false;
 
-
   async login(form: NgForm) {
     this.errorLogin = false;
    
@@ -27,15 +26,12 @@ export class Login{
       return;
     }
 
-
     this.isLoading = true;
-
 
     // cambiar nombre a login exitoso
     const loginExitoso = await this.authService.login(form.value);
    
     this.isLoading = false;
-
 
     if (loginExitoso) {
       // CASO ÉXITO: Redirigir al panel de administración

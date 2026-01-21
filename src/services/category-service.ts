@@ -2,7 +2,6 @@ import { inject, Injectable, signal } from '@angular/core';
 import { AuthService } from './auth-service';
 import { Categoria, NewCategory, UpdateCategoryRequestDto } from '../app/interfaces/categoria';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -78,7 +77,7 @@ export class CategoriesService {
 
 
   // --- ACTUALIZAR CATEGORÍA ---
-  async updateCategory(id: number, categoryData: UpdateCategoryRequestDto) {
+  async updateCategory(id: number, categoryData: Categoria) {
     if (!this.authService.token) return undefined;
 
 

@@ -9,6 +9,7 @@ import { onlyLoggedUserGuard } from './guards/only-logged-user-guard';
 import { onlyPublicUserGuard } from './guards/only-public-user-guard';
 import { RestaurantsPage } from './pages/restaurants/restaurants';
 import { RestaurantMenu } from './components/restaurant-menu/restaurant-menu';
+import { Configuracion } from './pages/configuration/configuration';
 
 export const routes: Routes = [
     
@@ -47,6 +48,10 @@ export const routes: Routes = [
         path: 'profile/edit',
         component: Register,
         canActivate: [onlyLoggedUserGuard]
+    },
+    {
+        path: "Configuracion",
+        component: Configuracion
     },
     {
         path: "**",

@@ -21,7 +21,7 @@ export class Home {
   }
 
   Register() {
-    this.router.navigate(['/Register'])
+    this.router.navigate(['/Registro'])
   }
 
   Invitado() {

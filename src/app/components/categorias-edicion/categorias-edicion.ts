@@ -77,19 +77,32 @@ export class CategoriasEdicion implements OnInit {
     try {
       const userId = this.authService.getUserId();
       
-      if (this.isEditing) {
-        // --- MODO EDICIÓN ---
-        const updateData = { name: form.value.name };
-        // Asumiendo que updateCategory devuelve true/false o el objeto
-        res = await this.categoryService.updateCategory(Number(this.idCategory()), updateData);
-      } else {
-        // --- MODO CREACIÓN ---
-        const nuevaCategory: NewCategory = {
-          name: form.value.name,
-          restaurantId: userId,
-        };
-        res = await this.categoryService.addCategory(nuevaCategory);
-      }
+if (this.isEditing) {
+  // --- MODO EDICIÓN ---
+  if (!this.categoryOriginal) {
+    console.error("No se encontró la categoría original");
+    this.errorBack = true;
+    this.isLoading = false;
+    return;
+  }
+
+  const updateData: Categoria = {
+    ...this.categoryOriginal,       // id, restaurantId, etc.
+    name: form.value.name,          // solo cambiamos el nombre
+  };
+
+  res = await this.categoryService.updateCategory(
+    Number(this.idCategory()),
+    updateData
+  );
+} else {
+  // --- MODO CREACIÓN ---
+  const nuevaCategory: NewCategory = {
+    name: form.value.name,
+    restaurantId: userId,
+  };
+  res = await this.categoryService.addCategory(nuevaCategory);
+}
 
       if (res) {
         // ÉXITO: Volver al panel
